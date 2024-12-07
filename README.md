@@ -1,16 +1,17 @@
-# Medkort
+# Медкорт  
 
-This project is a Flutter-based application designed for Medkort.
+Медкорт – это мобильное приложение, разработанное на Flutter, которое предоставляет пациентам удобный доступ к платформе Медкорт.  
 
-## Getting Started
+## О приложении  
 
-This project serves as a starting point for a Flutter application.
+Приложение представляет собой вебвью, позволяющее пользователям взаимодействовать с сервисами Медкорт через интуитивно понятный интерфейс мобильного устройства.  
 
-A few resources to get you started if this is your first Flutter project:
+## Основные функции  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Удобная навигация по платформе.  
+- Оптимизированное отображение веб-контента для мобильных устройств.  
+- Легкий и современный интерфейс.  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Технологии  
+
+Приложение разработано с использованием Flutter, что обеспечивает кроссплатформенную поддержку для iOS, Android и веба.  
