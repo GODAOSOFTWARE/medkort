@@ -71,13 +71,17 @@ class MyHomePage extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(icon, color: Colors.white.withOpacity(0.6)),
-        const SizedBox(height: 4),
+        Icon(
+          icon,
+          color: Colors.white.withOpacity(0.7), // Цвет иконки
+          size: 20, // Размер иконки уменьшен
+        ),
+        const SizedBox(height: 4), // Отступ между иконкой и текстом
         Text(
           label,
           style: TextStyle(
-            color: Colors.white.withOpacity(0.6),
-            fontSize: 12,
+            color: Colors.white.withOpacity(0.7), // Цвет текста
+            fontSize: 11, // Размер текста уменьшен
           ),
         ),
       ],
