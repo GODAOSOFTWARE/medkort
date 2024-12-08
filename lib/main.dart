@@ -21,8 +21,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -48,43 +55,39 @@ class MyHomePage extends StatelessWidget {
           Expanded(
             child: HtmlElementView(viewType: 'iframeElement'),
           ),
-          // Нижнее меню
-          Container(
-            height: 60, // Высота нижнего меню
-            color: const Color(0xFF050F21), // Тёмно-синий цвет
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _buildBottomNavItem(Icons.person, 'Профиль'),
-                _buildBottomNavItem(Icons.account_balance_wallet, 'Кошелек'),
-                _buildBottomNavItem(Icons.calendar_today, 'Приемы'),
-                _buildBottomNavItem(Icons.medical_services, 'Лечение'),
-              ],
-            ),
+          // Нижнее меню (NavigationBar)
+          NavigationBar(
+            onDestinationSelected: (int index) {
+              setState(() {
+                currentPageIndex = index;
+              });
+            },
+            selectedIndex: currentPageIndex,
+            destinations: const [
+              NavigationDestination(
+                selectedIcon: Icon(Icons.person),
+                icon: Icon(Icons.person_outline),
+                label: 'Анкета',
+              ),
+              NavigationDestination(
+                selectedIcon: Icon(Icons.account_balance_wallet),
+                icon: Icon(Icons.account_balance_wallet_outlined),
+                label: 'Кошелек',
+              ),
+              NavigationDestination(
+                selectedIcon: Icon(Icons.calendar_today),
+                icon: Icon(Icons.calendar_today_outlined),
+                label: 'Приемы',
+              ),
+              NavigationDestination(
+                selectedIcon: Icon(Icons.medical_services),
+                icon: Icon(Icons.medical_services_outlined),
+                label: 'Лечение',
+              ),
+            ],
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildBottomNavItem(IconData icon, String label) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(
-          icon,
-          color: Colors.white.withOpacity(0.7), // Цвет иконки
-          size: 20, // Размер иконки уменьшен
-        ),
-        const SizedBox(height: 4), // Отступ между иконкой и текстом
-        Text(
-          label,
-          style: TextStyle(
-            color: Colors.white.withOpacity(0.7), // Цвет текста
-            fontSize: 11, // Размер текста уменьшен
-          ),
-        ),
-      ],
     );
   }
 }
